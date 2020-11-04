@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     # new apps
     'rest_framework',
-    'auth'
+    'authapp'
 ]
 
 MIDDLEWARE = [
@@ -72,6 +72,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'message_me.wsgi.application'
+
+
+##
+AUTH_USER_MODEL = 'authapp.CustomUser'
+##
 
 
 # Database
