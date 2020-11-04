@@ -29,7 +29,7 @@ class ChatConversion(models.Model):
 
     subject = models.CharField(max_length=150)
     message = models.TextField(null=True)
-    date = models.DateField(auto_now_add=True, null=True)
+    date = models.DateField(auto_now_add=True, null=True) #models.DateTimeField(auto_now_add=True, blank=True)
     is_read = models.BooleanField(default=False)
     def __str__(self):
         msg_status = 'unread'
