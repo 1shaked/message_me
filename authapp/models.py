@@ -20,14 +20,11 @@ class CustomUser(AbstractUser):
 class ChatConversion(models.Model):
     sender = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        #verbose_name='sender',
         related_name="sender",
         on_delete=models.CASCADE)
     receiver = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        #verbose_name='receiver',
         related_name="receiver",
-
         on_delete=models.CASCADE)
 
     subject = models.CharField(max_length=150)
