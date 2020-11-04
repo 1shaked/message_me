@@ -18,8 +18,16 @@ class ChatConversionView(generics.ListCreateAPIView):
     # permission_classes = [permissions.IsAuthenticated] will be added to auth check at the end
 
     def get_queryset(self):
-        sender = self.request.query_params.get('sender', None)
+        sender  = self.request.query_params.get('sender', None)
+        seen = self.request.query_params.get('seen', None)
         print(self.request.query_params)
-        print(self.request.query_params)
-        return ChatConversion.objects.filter(sender = sender)
+        print()
+        if seen == 'read':
+            chat_convertion = ChatConversion.objects.filter(sender = sender, is_read=True)
+        elif seen == 'unread':
+            chat_convertion = ChatConversion.objects.filter(sender = sender, is_read=False)
+        else:
+            chat_convertion = ChatConversion.objects.filter(sender = sender)
+        chat_convertion.update(is_read=True) # after every request the is read will change to true
+        return chat_convertion
 
