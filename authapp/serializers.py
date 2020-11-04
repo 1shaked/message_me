@@ -23,5 +23,5 @@ class UserSerializer(serializers.ModelSerializer):
 class ChatConversionSerializer(serializers.ModelSerializer):
     class Meta:
         model = ChatConversion
-        exclude = ['date', 'is_read']
+        exclude = ['is_read']
     
