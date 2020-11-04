@@ -1,13 +1,13 @@
 from django.db import models
 from django.conf import settings
 
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser , AbstractBaseUser 
 
 # Create the user model.
 class CustomUser(AbstractUser):
     email = models.EmailField(verbose_name='email', max_length=255, unique=True)
     username = models.CharField(max_length=255)
-    REQUIRED_FIELDS = ['username', 'phone'] 
+    REQUIRED_FIELDS = ['username'] 
     USERNAME_FIELD = 'email'
 
     def get_username(self):
@@ -33,12 +33,12 @@ class ChatConversion(models.Model):
     is_read = models.BooleanField(default=False)
     def __str__(self):
         msg_status = 'unread'
-        if this.is_read:
+        if self.is_read:
             msg_status = 'read'
         return f'''
-            the sender {this.sender} 
-            send to {this.receiver} 
-            msg with the subject {this.subject}
-            at {this.date}
+            the sender {self.sender} 
+            send to {self.receiver} 
+            msg with the subject {self.subject}
+            at {self.date}
             The msg status is {msg_status}
             '''
