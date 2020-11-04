@@ -15,6 +15,7 @@ class CreateUserView(generics.CreateAPIView):
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
 
+# create a message or get all chat conversion for a user
 class ChatConversionView(generics.ListCreateAPIView):
     queryset = ChatConversion.objects.all()
     serializer_class = ChatConversionSerializer
@@ -22,9 +23,8 @@ class ChatConversionView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         sender  = self.request.query_params.get('sender', None)
-        seen = self.request.query_params.get('seen', None)
+        seen    = self.request.query_params.get('seen', None)
         print(self.request.query_params)
-        print()
         if seen == 'read':
             chat_convertion = ChatConversion.objects.filter(sender = sender, is_read=True)
         elif seen == 'unread':
@@ -34,6 +34,8 @@ class ChatConversionView(generics.ListCreateAPIView):
         chat_convertion.update(is_read=True) # after every request the is read will change to true
         return chat_convertion
 
+
+# delete and get spesic message for user (sender or recevier)
 class ChatMessage(generics.RetrieveDestroyAPIView):
     queryset = ChatConversion.objects.all()
     serializer_class  = ChatConversionSerializer
@@ -48,6 +50,8 @@ class ChatMessage(generics.RetrieveDestroyAPIView):
             return Response({'deleted' : 'deleted well done'} , status=status.HTTP_204_NO_CONTENT)
         return Response({'deleted' : 'no object to delete'},  status=status.HTTP_204_NO_CONTENT)
 
+
+# update / edit a chat message contetnt 
 class ChatMessageUpdate(generics.UpdateAPIView):
     queryset = ChatConversion.objects.all()
     serializer_class  = ChatConversionUpdate
