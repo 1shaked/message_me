@@ -25,3 +25,9 @@ class ChatConversionSerializer(serializers.ModelSerializer):
         model = ChatConversion
         exclude = ['is_read']
     
+
+
+class ChatConversionUpdate(serializers.ModelSerializer):
+    class Meta:
+        model = ChatConversion
+        fields = ['subject' ,'message']
