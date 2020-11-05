@@ -19,7 +19,7 @@ class CreateUserView(generics.CreateAPIView):
 class ChatConversionView(generics.ListCreateAPIView):
     queryset = ChatConversion.objects.all()
     serializer_class = ChatConversionSerializer
-    # permission_classes = [permissions.IsAuthenticated] will be added to auth check at the end
+    permission_classes = [permissions.IsAuthenticated]# will be added to auth check at the end
 
     def get_queryset(self):
         sender  = self.request.query_params.get('sender', None)
