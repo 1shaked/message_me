@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # new apps
     'rest_framework',
+    'rest_framework.authtoken',
     'authapp'
 ]
 
@@ -73,6 +74,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'message_me.wsgi.application'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 ##
 AUTH_USER_MODEL = 'authapp.CustomUser'
