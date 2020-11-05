@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "2be58593-35d3-4966-b550-fcaa710b01d3",
+		"name": "message_me_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create_user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "testme",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "hotmain1@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "me+This44=job",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://chenshaked516.pythonanywhere.com/authapp/user/",
+					"protocol": "https",
+					"host": [
+						"chenshaked516",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"authapp",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chat conversion",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 272933a3f5ad309597c39c448f73d75c7cc4162a",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://127.0.0.1:8000/authapp/chatConversion/?sender=1&seen=all",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"authapp",
+						"chatConversion",
+						""
+					],
+					"query": [
+						{
+							"key": "sender",
+							"value": "1"
+						},
+						{
+							"key": "seen",
+							"value": "all",
+							"description": "you can give read or unread the defualte will be all of nothing will got misspell"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get chat msg",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://chenshaked516.pythonanywhere.com/authapp/chatMessage/5/2",
+					"protocol": "https",
+					"host": [
+						"chenshaked516",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"authapp",
+						"chatMessage",
+						"5",
+						"2"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "this request url pattern get get a sesipct msg by id"
+			},
+			"response": []
+		},
+		{
+			"name": "delete chat msg",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://chenshaked516.pythonanywhere.com/authapp/chatMessage/6/3",
+					"protocol": "https",
+					"host": [
+						"chenshaked516",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"authapp",
+						"chatMessage",
+						"6",
+						"3"
+					]
+				},
+				"description": "this api view will del msg by it's id"
+			},
+			"response": []
+		},
+		{
+			"name": "update msg",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "subject",
+							"value": "i am change youuuu",
+							"description": "the subjuct change view",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "My new job",
+							"description": "the msg content to change ",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://chenshaked516.pythonanywhere.com/authapp/chatMessageUpdate/5/2/",
+					"protocol": "https",
+					"host": [
+						"chenshaked516",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"authapp",
+						"chatMessageUpdate",
+						"5",
+						"2",
+						""
+					]
+				},
+				"description": "this api view will update the msg content"
+			},
+			"response": []
+		},
+		{
+			"name": "GetToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "hotmain1@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "me+This44=job",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://chenshaked516.pythonanywhere.com/authapp/api-token-auth/",
+					"protocol": "https",
+					"host": [
+						"chenshaked516",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"authapp",
+						"api-token-auth",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
